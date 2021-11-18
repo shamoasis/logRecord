@@ -14,6 +14,8 @@ public class LogRecordProperties {
 
     private RocketMqProperties rocketMqProperties;
 
+    private KafkaMqProperties kafkaMqProperties;
+
     /**
      * choose pipeline for message: rabbitMq, rocketMq
      */
@@ -39,5 +41,16 @@ public class LogRecordProperties {
         private int maxMessageSize = 4000000;
         private int sendMsgTimeout = 3000;
         private int retryTimesWhenSendFailed = 2;
+    }
+
+    @Data
+    public static class KafkaMqProperties {
+        private String topic = "logRecord";
+        private String bootstrapServers="localhost:9092";
+        private int retries = 0;
+        private int batchSize = 4096;
+        private int bufferMemory = 409600;
+        private String protocol = "SASL_PLAINTEXT";
+        private String mechanism = "PLAIN";
     }
 }
