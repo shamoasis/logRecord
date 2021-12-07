@@ -16,5 +16,6 @@ public class LogDTO {
 	private Boolean success;
 	private String msg;
 	private String tag;
+	private String returnStr;
 
 }
